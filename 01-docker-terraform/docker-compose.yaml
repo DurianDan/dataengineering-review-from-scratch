@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:13
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=vee
+      - POSTGRES_PASSWORD=theengineer
+      - POSTGRES_DB=airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'vee']
+      interval: 5s
+      retries: 5
+    
+  data_pipeline:
+    build: 
+      context: .
+    volumes:
+      - ./data_pipeline:/app/
+
+volumes:
+  postgres_data:
