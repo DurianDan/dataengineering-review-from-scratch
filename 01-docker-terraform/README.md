@@ -25,3 +25,8 @@ total_amount                    float64
 congestion_surcharge            float64
 airport_fee                     float64
 ```
+
+# Steps:
+- `docker compose up -d`
+- `uv sync`
+- `uv run data_pipeline/main.py`

@@ -15,11 +15,11 @@ services:
       interval: 5s
       retries: 5
     
-  data_pipeline:
-    build: 
-      context: .
-    volumes:
-      - ./data_pipeline:/app/
+  # data_pipeline:
+  #   build: 
+  #     context: .
+  #   volumes:
+  #     - ./data_pipeline:/app/
 
 volumes:
   postgres_data:
