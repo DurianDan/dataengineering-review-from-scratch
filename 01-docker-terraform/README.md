@@ -1,4 +1,4 @@
-# Content
+## Content
 - Airflow
 - Docker
 - GCP
@@ -26,7 +26,17 @@ congestion_surcharge            float64
 airport_fee                     float64
 ```
 
-# Steps:
+## Steps:
+- Download the dataset, and put it in the `data_pipeline/` folder
+    - Make sure the name of the dataset is `yellow_tripdata_2021-01.parquet`
 - `docker compose up -d`
+
+## Local Development (outside of Docker):
+- `source .env`
+- `export LOCAL_DEVELOPMENT_PG_URL=localhost`
 - `uv sync`
 - `uv run data_pipeline/main.py`
+
+## Notes:
+- The tutorial uses **pgAdmin** to connect to Postgres
+- I personally use the vscode extension: **Database Client** from Weijan Chen or **DBeaver**, so I don't practice with pgAdmin.
