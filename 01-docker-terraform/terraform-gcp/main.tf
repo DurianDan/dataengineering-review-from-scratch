@@ -9,14 +9,14 @@ terraform {
 
 provider "google" {
   # Configuration option
-  credentials = "./keys/gcp-creds.json"
-  project     = "feisty-deck-445217-m6"
-  region      = "us-central1"
+  credentials = var.credentials
+  project     = var.project_id
+  region      = var.location
 }
 
 resource "google_storage_bucket" "zoomcamp-bucket" {
   name          = "vee-zoomcamp-bucket"
-  location      = "EU"
+  location      = var.location
   force_destroy = true
 
   lifecycle_rule {
@@ -36,4 +36,10 @@ resource "google_storage_bucket" "zoomcamp-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+
+resource "google_bigquery_dataset" "zoomcamp_dataset" {
+  dataset_id = var.bq_dataset_id
+  location   = var.location
 }
