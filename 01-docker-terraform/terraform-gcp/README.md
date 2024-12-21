@@ -5,4 +5,8 @@
     - `plan` Explain the plan
     - `apply` -> Config the Infra
     - `destroy` -> Remove all infra defined
-- Setup GCP for Terraform
+- Setup GCP for Terraform:
+    - 1. install the gcloud cli, with this [doc](https://cloud.google.com/sdk/docs/install)
+    - 2. `gcloud auth login`
+    - 3. Login to your google cloud account
+    - 4. `gcloud config set project <your project ID>` 
