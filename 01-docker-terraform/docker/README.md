@@ -3,7 +3,7 @@
 - Docker
 - GCP
 - Terraform
-- The data set used in the tutorial: [NY Yellow Taxi data](https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/01-docker-terraform), with the schema:
+- The data set used in the tutorial: [NY Yellow Taxi data](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet), with the schema:
 ```
 VendorID                          int64
 tpep_pickup_datetime     datetime64[us]
