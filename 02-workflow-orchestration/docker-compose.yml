@@ -3,6 +3,8 @@ volumes:
     driver: local
   kestra-data:
     driver: local
+  postgres-datawarehouse:
+    driver: local
 
 services:
   postgres:
@@ -40,3 +42,15 @@ services:
     depends_on:
       postgres:
         condition: service_started
+
+  postgres-datawarehouse:
+    image: postgres
+    container_name: postgres-datawarehouse
+    environment:
+      POSTGRES_DB: datawarehouse-zoomcamp
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: k3str4
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-datawarehouse:/var/lib/postgresql/data
